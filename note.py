@@ -1,4 +1,4 @@
-'''Implement calass Note, Notes'''
+'''Implement class Note, Notes'''
 
 from collections import UserDict
 
