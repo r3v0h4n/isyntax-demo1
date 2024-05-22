@@ -8,6 +8,7 @@ from commands.AllCommand import AllCommand
 from commands.AddBirthdayCommand import AddBirthdayCommand
 from commands.ShowBirthdayCommand import ShowBirthdayCommand
 from commands.BirthdaysCommand import BirthdaysCommand
+from commands.AddAddressCommand import AddAddressCommand
 
 def save_data(book, filename="addressbook.pkl"):
     with open(filename, "wb") as f:
@@ -30,7 +31,7 @@ def parse_input(user_input):
 def main():
     
     book = load_data()
-    commands = [HelloCommand(), AddContactCommand(), GetPhoneCommand(), ChangeContactCommand(), AllCommand(), AddBirthdayCommand(), ShowBirthdayCommand(), BirthdaysCommand()]
+    commands = [HelloCommand(), AddContactCommand(), GetPhoneCommand(), ChangeContactCommand(), AllCommand(), AddBirthdayCommand(), ShowBirthdayCommand(), BirthdaysCommand(), AddAddressCommand()]
 
     while True:
         user_input = input("Enter a command: ")
