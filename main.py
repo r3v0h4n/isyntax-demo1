@@ -29,8 +29,8 @@ def parse_input(user_input):
 
 
 def main():
-    book_filename = "data/addressbook.pkl"
-    notes_filename = "data/notes.pkl"
+    book_filename = "addressbook.pkl"
+    notes_filename = "notes.pkl"
     
     book = load_data(book_filename) or AddressBook()
     notes = load_data(notes_filename) or "test" # todo change to implemented class
