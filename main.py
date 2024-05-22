@@ -11,6 +11,10 @@ from commands.BirthdaysCommand import BirthdaysCommand
 from commands.note.NoteCommand import NoteCommand
 from commands.note.AddNoteCommand import AddNoteCommand
 
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import NestedCompleter
+
+
 def save_data(object, filename):
     with open(filename, "wb") as f:
         pickle.dump(object, f)
@@ -27,6 +31,17 @@ def parse_input(user_input):
     cmd = cmd.strip().lower()
     return cmd, *args
 
+def get_commands_dict(commands):
+    # create 1 list from list of lists
+    command_names = []
+    for command in commands:
+        command_names.extend(command.names)
+
+    command_names.extend(["close", "exit"])
+
+    # autocompleter requires dict, because otherwise autocompletion will occur on every word
+    return {command: None for command in command_names}
+
 
 def main():
     book_filename = "addressbook.pkl"
@@ -36,8 +51,10 @@ def main():
     notes = load_data(notes_filename) or "test" # todo change to implemented class
     commands = [HelloCommand(), AddContactCommand(), GetPhoneCommand(), ChangeContactCommand(), AllCommand(), AddBirthdayCommand(), ShowBirthdayCommand(), BirthdaysCommand(), AddNoteCommand()]
 
+    completer = NestedCompleter.from_nested_dict(get_commands_dict(commands))
+
     while True:
-        user_input = input("Enter a command: ")
+        user_input = prompt('Enter a command: ', completer=completer)
         entered_command, *args = parse_input(user_input)
 
         if entered_command in ["close", "exit"]:
