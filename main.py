@@ -8,6 +8,7 @@ from commands.AllCommand import AllCommand
 from commands.AddBirthdayCommand import AddBirthdayCommand
 from commands.ShowBirthdayCommand import ShowBirthdayCommand
 from commands.BirthdaysCommand import BirthdaysCommand
+from commands.AddAddressCommand import AddAddressCommand
 from commands.AddEmailCommand import AddEmailCommand
 from commands.GetEmailCommand import GetEmailCommand
 from commands.note.NoteCommand import NoteCommand
@@ -47,6 +48,7 @@ def main():
         ShowBirthdayCommand(),
         BirthdaysCommand(),
         GetEmailCommand(),
+        AddAddressCommand(),
         AddEmailCommand(),
         AddNoteCommand()
     ]
