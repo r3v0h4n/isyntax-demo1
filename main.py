@@ -8,6 +8,8 @@ from commands.AllCommand import AllCommand
 from commands.AddBirthdayCommand import AddBirthdayCommand
 from commands.ShowBirthdayCommand import ShowBirthdayCommand
 from commands.BirthdaysCommand import BirthdaysCommand
+from commands.AddEmailCommand import AddEmailCommand
+from commands.GetEmailCommand import GetEmailCommand
 from commands.note.NoteCommand import NoteCommand
 from commands.note.AddNoteCommand import AddNoteCommand
 
@@ -31,10 +33,23 @@ def parse_input(user_input):
 def main():
     book_filename = "addressbook.pkl"
     notes_filename = "notes.pkl"
-    
     book = load_data(book_filename) or AddressBook()
     notes = load_data(notes_filename) or "test" # todo change to implemented class
-    commands = [HelloCommand(), AddContactCommand(), GetPhoneCommand(), ChangeContactCommand(), AllCommand(), AddBirthdayCommand(), ShowBirthdayCommand(), BirthdaysCommand(), AddNoteCommand()]
+    
+    commands =\
+    [
+        HelloCommand(),
+        AddContactCommand(),
+        GetPhoneCommand(),
+        ChangeContactCommand(),
+        AllCommand(),
+        AddBirthdayCommand(),
+        ShowBirthdayCommand(),
+        BirthdaysCommand(),
+        GetEmailCommand(),
+        AddEmailCommand(),
+        AddNoteCommand()
+    ]
 
     while True:
         user_input = input("Enter a command: ")
