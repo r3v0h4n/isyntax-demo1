@@ -12,6 +12,7 @@ Commands:
 - email [name] - prints contact email
 - search [value] - prints list of contacts where name or email or phones contains entered value
 - all - prints list of all contacts
+- birthdays [days] - prints customers with birthdays within entered days. Default value is 7 
 
 - add-note [title] [body] [tags]... - creates new note. You can provide multiple tags
 - change-note [title] [body] [tags]... - updates note by title. You can provide multiple tags
