@@ -1,5 +1,6 @@
 from addressbook import AddressBook
 import pickle
+from commands.Command import Command
 from commands.HelloCommand import HelloCommand
 from commands.AddContactCommand import AddContactCommand
 from commands.GetPhoneCommand import GetPhoneCommand
@@ -38,7 +39,7 @@ def main():
     book = load_data(book_filename) or AddressBook()
     notes = load_data(notes_filename) or Notebook()
     
-    commands =\
+    commands: list[Command] =\
     [
         HelloCommand(),
         AddContactCommand(),
