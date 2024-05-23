@@ -19,10 +19,10 @@ class AddressBook(UserDict):
     def delete(self, name: str) -> None:
         del self.data[name]
 
-    def get_upcoming_birthdays(self, args) -> list:
+    def get_upcoming_birthdays(self, in_next_days = 7) -> list:
         today = datetime.today().date()
         upcoming_birthdays = []
-        in_next_ndays = int(args[0]) if len(args) > 0 else 7
+        in_next_ndays = in_next_days
 
         for record in self.data.values():
             if not record.birthday:
