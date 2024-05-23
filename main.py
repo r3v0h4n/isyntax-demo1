@@ -12,6 +12,8 @@ from commands.AddEmailCommand import AddEmailCommand
 from commands.GetEmailCommand import GetEmailCommand
 from commands.note.NoteCommand import NoteCommand
 from commands.note.AddNoteCommand import AddNoteCommand
+from commands.note.UpdateNoteCommand import UpdateNoteCommand
+from note import Notebook
 
 def save_data(object, filename):
     with open(filename, "wb") as f:
@@ -34,7 +36,7 @@ def main():
     book_filename = "addressbook.pkl"
     notes_filename = "notes.pkl"
     book = load_data(book_filename) or AddressBook()
-    notes = load_data(notes_filename) or "test" # todo change to implemented class
+    notes = load_data(notes_filename) or Notebook()
     
     commands =\
     [
@@ -48,7 +50,8 @@ def main():
         BirthdaysCommand(),
         GetEmailCommand(),
         AddEmailCommand(),
-        AddNoteCommand()
+        AddNoteCommand(),
+        UpdateNoteCommand()
     ]
 
     while True:
