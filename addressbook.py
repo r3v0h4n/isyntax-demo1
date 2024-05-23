@@ -19,9 +19,10 @@ class AddressBook(UserDict):
     def delete(self, name: str) -> None:
         del self.data[name]
 
-    def get_upcoming_birthdays(self) -> list:
+    def get_upcoming_birthdays(self, args) -> list:
         today = datetime.today().date()
         upcoming_birthdays = []
+        in_next_ndays = int(args[0]) if len(args) > 0 else 7
 
         for record in self.data.values():
             if not record.birthday:
@@ -37,14 +38,14 @@ class AddressBook(UserDict):
             # Calculate the difference between the birthday and today
             days_until_birthday = (congratulation_date - today).days
 
-            # Check if the birthday falls within the next 7 days
-            if days_until_birthday > 7:
+            # Check if the birthday falls within the next n days
+            if days_until_birthday > in_next_ndays:
                 continue
 
             # Move the congratulation date to the next Monday if the birthday falls on a weekend
             weekday = congratulation_date.weekday()
             if weekday >= 5:
-                congratulation_date += timedelta(days=7 - weekday)
+                congratulation_date += timedelta(days = 7 - weekday)
             
             upcoming_birthdays.append((record, congratulation_date))
 
