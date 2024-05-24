@@ -21,6 +21,7 @@ from note import Notebook
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import NestedCompleter
 
+from commands.DeleteContactCommand import DeleteContactCommand
 
 def save_data(object, filename):
     with open(filename, "wb") as f:
@@ -71,7 +72,8 @@ def main():
         AddEmailCommand(),
         AddNoteCommand(),
         UpdateNoteCommand(),
-        SearchCommand()
+        SearchCommand(),
+        DeleteContactCommand()
     ]
 
     completer = NestedCompleter.from_nested_dict(get_commands_dict(commands))
