@@ -76,7 +76,6 @@ def main():
         SearchCommand(),
         SeachNoteCommand(),
         DeleteContactCommand()
-
     ]
 
     completer = NestedCompleter.from_nested_dict(get_commands_dict(commands))
