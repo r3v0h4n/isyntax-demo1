@@ -6,11 +6,11 @@ class UpdateNoteCommand(NoteCommand):
 
     def execute(self, notebook, args):
         title = args[0]
-        body = " ".join(args[1:])
+        content = " ".join(args[1:])
 
         note = notebook.find(title)
         if not note:
             raise ValueError("Note not found!")
         
-        note.body = body
+        note.content = content
         return "Note updated."
