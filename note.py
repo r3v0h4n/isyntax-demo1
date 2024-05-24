@@ -4,9 +4,9 @@ from collections import UserDict
 
 class Note:
     def __init__(self, title: str, content: str, tags: list = None):
-        self.title = title
-        self.content = content
-        self.tags = tags if tags is not None else []
+        self.__title = title
+        self.__content = content
+        self.__tags = tags if tags is not None else []
 
     @property
     def title(self):
@@ -20,13 +20,13 @@ class Note:
 
     @property
     def content(self):
-        return self.__note
+        return self.__content
 
     @content.setter
     def content(self, value: str):
         if not value:
             raise ValueError("Note content must not be empty.")
-        self.__note = value
+        self.__content = value
 
     @property
     def tags(self):
@@ -50,7 +50,7 @@ class Note:
         return tag in self.__tags
 
     def __str__(self):
-        return f"Title: {self.title}\nContent: {self.content}\nTags: {', '.join(self.tags)}"
+        return f"Title: {self.title}\nContent: {self.content}"
 
 class Notebook(UserDict):
     def add(self, note: Note):
@@ -63,8 +63,8 @@ class Notebook(UserDict):
         if title in self.data:
             del self.data[title]
 
-    def search(self, tag: str) -> list:
-        result = [note for note in self.data.values() if note.has_tag(tag)]
+    def search(self, value: str) -> list:
+        result = [note for title, note in self.data.items() if value in title or value in note.content]
         return result if result else None
 
 # Example usage
