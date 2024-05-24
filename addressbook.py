@@ -16,6 +16,14 @@ class AddressBook(UserDict):
             raise ValueError("Contact with this name does not exist!")
         return record
     
+    def search(self, value: str) -> list:
+        filtered = []
+        for name, record in self.data.items():
+            if value in name or (record.address and name in record.address.value):
+                filtered.append(record)
+
+        return filtered
+    
     def delete(self, name: str) -> None:
         del self.data[name]
 
