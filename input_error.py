@@ -9,5 +9,6 @@ def input_error(func):
         except KeyError as e:
             return str(e)
         except Exception as e:
+            print(e)
             return "Unexpected error"
     return inner

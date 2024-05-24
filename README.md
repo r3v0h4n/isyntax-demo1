@@ -14,10 +14,10 @@ Commands:
 - all - prints list of all contacts
 - birthdays [days] - prints customers with birthdays within entered days. Default value is 7 
 
-- add-note [title] [body] [tags]... - creates new note. You can provide multiple tags
-- change-note [title] [body] [tags]... - updates note by title. You can provide multiple tags
+- add-note [title] [body] - creates new note. You can provide multiple tags
+- change-note [title] [body] - updates note by title.
 - delete-note [title] - deletes note by title
-- search-note [value] - prints list of notes where title or body or tags contains entered value
+- search-note [value] - prints list of notes where title or body contains entered value
 
 - close - exits program
 - exit - exits program

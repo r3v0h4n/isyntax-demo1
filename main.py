@@ -16,6 +16,7 @@ from commands.SearchCommand import SearchCommand
 from commands.note.NoteCommand import NoteCommand
 from commands.note.AddNoteCommand import AddNoteCommand
 from commands.note.UpdateNoteCommand import UpdateNoteCommand
+from commands.note.SeachNoteCommand import SeachNoteCommand
 from note import Notebook
 
 from prompt_toolkit import prompt
@@ -71,7 +72,8 @@ def main():
         AddEmailCommand(),
         AddNoteCommand(),
         UpdateNoteCommand(),
-        SearchCommand()
+        SearchCommand(),
+        SeachNoteCommand()
     ]
 
     completer = NestedCompleter.from_nested_dict(get_commands_dict(commands))

@@ -6,10 +6,7 @@ class AddNoteCommand(NoteCommand):
 
     def execute(self, notebook, args):
         title = args[0]
-        body = args[1]
-        tags = []
-        if len(args) > 2:
-            tags = args[2:]
+        body = " ".join(args[1:])
         
-        notebook.add(Note(title, body, tags))
+        notebook.add(Note(title, body))
         return "Note added."
