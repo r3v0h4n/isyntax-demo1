@@ -46,7 +46,7 @@ class Record:
         self.find_email(email_to_edit).value = new_email
 
     def __str__(self) -> str:
-        return f"Contact name: {self.__name}, birthday: {self.__birthday}, address: {self.__address}, phones: {'; '.join(str(phone) for phone in self.__phones)}"
+        return f"Contact name: {self.__name}, birthday: {self.__birthday}, address: {self.__address}, phones: {'; '.join(str(phone) for phone in self.__phones)}, emails: {'; '.join(str(email) for email in self.__emails)}"
     
     @property
     def name(self) -> Name:

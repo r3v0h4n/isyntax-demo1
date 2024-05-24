@@ -17,6 +17,7 @@ from commands.note.NoteCommand import NoteCommand
 from commands.note.AddNoteCommand import AddNoteCommand
 from commands.note.UpdateNoteCommand import UpdateNoteCommand
 from commands.note.SeachNoteCommand import SeachNoteCommand
+from commands.note.DeleteNoteCommand import DeleteNoteCommand
 from note import Notebook
 
 from prompt_toolkit import prompt
@@ -75,7 +76,8 @@ def main():
         UpdateNoteCommand(),
         SearchCommand(),
         SeachNoteCommand(),
-        DeleteContactCommand()
+        DeleteContactCommand(),
+        DeleteNoteCommand()
     ]
 
     completer = NestedCompleter.from_nested_dict(get_commands_dict(commands))

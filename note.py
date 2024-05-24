@@ -65,7 +65,9 @@ class Notebook(UserDict):
 
     def search(self, value: str) -> list:
         result = [note for title, note in self.data.items() if value in title or value in note.content]
-        return result if result else None
+        if result:
+            return result
+        raise ValueError(f"Note with text: '{value}' is not found")
 
 # Example usage
 if __name__ == "__main__":
