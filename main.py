@@ -12,6 +12,7 @@ from commands.BirthdaysCommand import BirthdaysCommand
 from commands.AddAddressCommand import AddAddressCommand
 from commands.AddEmailCommand import AddEmailCommand
 from commands.GetEmailCommand import GetEmailCommand
+from commands.SearchCommand import SearchCommand
 from commands.note.NoteCommand import NoteCommand
 from commands.note.AddNoteCommand import AddNoteCommand
 from commands.note.UpdateNoteCommand import UpdateNoteCommand
@@ -71,6 +72,7 @@ def main():
         AddEmailCommand(),
         AddNoteCommand(),
         UpdateNoteCommand(),
+        SearchCommand(),
         DeleteContactCommand()
     ]
 

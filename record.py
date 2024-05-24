@@ -53,7 +53,7 @@ class Record:
         return self.__name
     
     @property
-    def address(self) -> Name:
+    def address(self) -> Address:
         return self.__address
     
     @property
